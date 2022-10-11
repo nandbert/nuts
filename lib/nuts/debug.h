@@ -327,6 +327,7 @@ EXTERN_C_END
 #define DDUMPX(mem,st,dx,dy)
 #define DLOG_BEGIN
 #define DLOG_END
+#define DOUT(exp)
 #endif
 
 #ifndef assert
