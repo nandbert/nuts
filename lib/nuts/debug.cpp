@@ -15,7 +15,7 @@ int nuts_printf(const char *format, ...)
 {
 	int			r=0;
 	va_list		args;
-	static char buffer[64];
+	static char buffer[128];
 
 	va_start(args, format);
 	vsnprintf(buffer,sizeof(buffer),format, args);

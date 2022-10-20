@@ -281,7 +281,7 @@ EXTERN_C_END
   * internally
   */
 #define DDUMP(exp)   ({if(DLOGCOND){nuts_printf(DLOGTAG"dump of: %s =\n",#exp);\
-	fDebugDump(&(exp),0,sizeof(exp)); nuts_flush(); }})
+	debugDump(&(exp),0,sizeof(exp)); nuts_flush(); }})
 
 /** dump extended (rectangular memory area with stride).
  *  \param mem
