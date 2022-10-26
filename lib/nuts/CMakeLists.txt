@@ -12,8 +12,9 @@
 #  LANGUAGE
 #    CMake
 #
+cmake_minimum_required(VERSION 3.0)
 project(nuts)
-add_library(nuts debug.c debug.cpp pic.c strmem.c list.c win.c)
+add_library(nuts debug.c pic.c strmem.c list.c win.c)
 target_include_directories(nuts PUBLIC ..)
 target_link_libraries(nuts X11)
 
