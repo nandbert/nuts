@@ -12,7 +12,9 @@
 #  LANGUAGE
 #    CMake
 #
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.10)
+include_guard(GLOBAL)
+
 project(nuts)
 add_library(nuts debug.c pic.c strmem.c list.c win.c)
 target_include_directories(nuts PUBLIC ..)
