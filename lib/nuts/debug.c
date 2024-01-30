@@ -123,7 +123,7 @@ size_t nuts_GetTextStart(void)
 #if 0
 	// show first 30 lines of maps
 	char	buf1[256];
-	for(int i=0;(size_t)fgets(buf1,sizeof(buf1),f)!=EOF && i<30;i++)
+	for(int i=0;(long)fgets(buf1,sizeof(buf1),f)!=EOF && i<30;i++)
 		if(!strncmp(".elf",buf1+strlen(buf1)-5,4))
 			printf("%s %s",buf1,buf1+strlen(buf1)-5);
 	fclose(f);
@@ -131,7 +131,7 @@ size_t nuts_GetTextStart(void)
 
 	char	buf[256]={"0x"};
 	int		i;
-	for(i=0;(size_t)fgets(buf+2,sizeof(buf)-2,f)!=EOF;i++)
+	for(i=0;(long)fgets(buf+2,sizeof(buf)-2,f)!=EOF;i++)
 		if( !strncmp(".elf",buf+strlen(buf)-5,4) && strstr(buf,"r-xp") ){
 			//printf("%s",buf);
 			break;
@@ -178,7 +178,7 @@ static void PrintStackTrace(int start, int end, bool func)
 	if(btl>2)
 	{
 		bts=backtrace_symbols(bta,btl);
-		if(s=strchr(bts[0],'('))
+		if( (s=strchr(bts[0],'(')) )
 		{
 			strncpy(exe,bts[0],s-bts[0]);
 			exe[s-bts[0]]=0;

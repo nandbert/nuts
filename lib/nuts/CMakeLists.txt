@@ -15,6 +15,8 @@
 cmake_minimum_required(VERSION 3.10)
 include_guard(GLOBAL)
 
+add_compile_options(-std=gnu99 -Wno-misleading-indentation -Wno-pedantic)
+
 project(nuts)
 add_library(nuts debug.c pic.c strmem.c list.c win.c)
 target_include_directories(nuts PUBLIC ..)

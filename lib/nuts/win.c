@@ -309,7 +309,7 @@ static int HandleEvent(XEvent *pEv)
   tWin			*pThat;
   double		z;
   char			buffer[20];
-  int			cc,key;
+  int			key;
   KeySym		keysym;
   XComposeStatus	compose;
 
@@ -369,7 +369,7 @@ static int HandleEvent(XEvent *pEv)
   case KeyPress:
     pThat=FindWin(pEv->xany.window);
     if(pThat->Key.pFunc){
-      cc=XLookupString(&pEv->xkey,buffer,sizeof(buffer),&keysym,&compose);
+      XLookupString(&pEv->xkey,buffer,sizeof(buffer),&keysym,&compose);
       if(ISIN(keysym,XK_space,XK_asciitilde))
 	key=buffer[0];
       else if(keysym==XK_Left)
@@ -406,6 +406,8 @@ static int HandleEvent(XEvent *pEv)
  */
 static int Click(void *pUndef, tWin *pWin, int X, int Y)
 {
+    (void)pUndef; (void)pWin;
+    
     printf("(x,y)= %3d,%3d\n",X,Y);
 
     return NIL;

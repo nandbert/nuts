@@ -942,7 +942,7 @@ bool Yc_Load(tYc *pThat, const char *Name)
     int   x,y,r;
     u8	buff[1024];
 
-    MUST_Le(pThat->Dx/2,sizeof(buff));
+    MUST_Le(pThat->Dx/2,(int)sizeof(buff));
 
     if(strcmp(Name,"-")==0)
 	file=stdin;
